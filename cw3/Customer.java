@@ -3,7 +3,7 @@ package cw3;
 /**
  * @author fgrami01 & jbukow01
  * 
- */
+ */ 
 
 public class Customer {
 
