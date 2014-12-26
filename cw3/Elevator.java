@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * @author fgrami01 & jbukow01
- * Comment to test push, viado!
  *
  */
 
@@ -14,6 +13,7 @@ public class Elevator {
 	private ArrayList<Customer> customerBase;
 	// private static int groundFloor;
 	private int currentFloor;
+	private boolean top = false;
 
 	public Elevator(ArrayList<Customer> customerBase, int maxFloors,
 			int groundFloor) {
@@ -24,7 +24,8 @@ public class Elevator {
 
 	public void bottomToTopMove(int maxFloors) {
 		currentFloor = 0;
-		if (currentFloor != maxFloors) {
+		System.out.println("Starting floor: " + currentFloor + " Number of customers: " + customerBase.size());
+		if (currentFloor != maxFloors && !top) {
 			for (int i = 0; i < customerBase.size(); i++) {
 				if (customerBase.get(i).getStartingFloor() == currentFloor) {
 					customerBase.get(i).setInElevator(true);
@@ -34,8 +35,10 @@ public class Elevator {
 				}
 			}
 			currentFloor++;
+			if (currentFloor == maxFloors)
+				top = true;
 		}
-		else {
+		else if (top) {
 			for (int i = 0; i < customerBase.size(); i++) {
 				if (customerBase.get(i).getStartingFloor() == currentFloor) {
 					customerBase.get(i).setInElevator(true);
@@ -46,6 +49,5 @@ public class Elevator {
 			}
 			currentFloor--;
 		}
-		
 	}
 }

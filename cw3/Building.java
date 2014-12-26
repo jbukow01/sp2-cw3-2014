@@ -8,9 +8,11 @@ import java.util.ArrayList;
  */
 
 public class Building {
+	
+	public Elevator elevator;
 
 	public Building(ArrayList<Customer> customerList, int maxFloors,
 			int groundFloor) {
-		Elevator elevator = new Elevator(customerList, maxFloors, groundFloor);
+		elevator = new Elevator(customerList, maxFloors, groundFloor);
 	}
 }

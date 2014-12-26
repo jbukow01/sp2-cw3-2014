@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Runner {
 
 	private static ArrayList<Customer> customerBase;
+	private static Building building;
 	private static int maxFloors;
 	private static int numberOfCustomers;
 	private static int startingFloor;
@@ -24,6 +25,8 @@ public class Runner {
 		desiredFloor = (int) (Math.random() * maxFloors);
 		createCustomerBase(numberOfCustomers, startingFloor, desiredFloor);
 		createBuildingStructure(customerBase, maxFloors, groundFloor);
+		
+		building.elevator.bottomToTopMove(maxFloors);
 	}
 
 	private static void createCustomerBase(int maxCustomers, int startingFloor, int desiredFloor) {
@@ -35,6 +38,6 @@ public class Runner {
 	
 	private static void createBuildingStructure(ArrayList<Customer> customerBase,
 			int maxFloors, int groundFloor) {
-		Building building = new Building(customerBase, maxFloors, groundFloor);
+		building = new Building(customerBase, maxFloors, groundFloor);
 	}
 }
