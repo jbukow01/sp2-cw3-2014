@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * @author fgrami01 & jbukow01
  * 
- */ 
+ */
 
 public class Elevator {
 
@@ -24,7 +24,9 @@ public class Elevator {
 
 	public void bottomToTopMove(int maxFloors) {
 		currentFloor = 0;
-		System.out.println("Starting floor: " + currentFloor + " Number of customers: " + customerBase.size());
+		System.out.println("Starting floor: " + currentFloor
+				+ " Number of floors: " + NUMBER_OF_FLOORS
+				+ " Number of customers: " + customerBase.size());
 		if (currentFloor != maxFloors && !top) {
 			for (int i = 0; i < customerBase.size(); i++) {
 				if (customerBase.get(i).getStartingFloor() == currentFloor) {
@@ -33,12 +35,13 @@ public class Elevator {
 				if (customerBase.get(i).getDesiredFloor() == currentFloor) {
 					customerBase.remove(i);
 				}
+				System.out.println("Current floor: " + currentFloor
+						+ " Number of customers: " + customerBase.size());
+				currentFloor++;
 			}
-			currentFloor++;
 			if (currentFloor == maxFloors)
 				top = true;
-		}
-		else if (top) {
+		} else if (top) {
 			for (int i = 0; i < customerBase.size(); i++) {
 				if (customerBase.get(i).getStartingFloor() == currentFloor) {
 					customerBase.get(i).setInElevator(true);
@@ -46,8 +49,11 @@ public class Elevator {
 				if (customerBase.get(i).getDesiredFloor() == currentFloor) {
 					customerBase.remove(i);
 				}
+				System.out.println("Current floor: " + currentFloor
+						+ " Number of customers: " + customerBase.size());
+				currentFloor--;
 			}
-			currentFloor--;
 		}
+		System.out.println("Finished. Number of customers in the lift: " + customerBase.size());
 	}
 }

@@ -19,10 +19,11 @@ public class Runner {
 
 	public static void main(String[] args) {
 
-		numberOfFloors = 10;
-		numberOfCustomers = 5;
+		numberOfFloors = (int) (Math.random() * 30) + 2;
+		numberOfCustomers = (int) (Math.random() * 9) + 1;;
 		startingFloor = (int) (Math.random() * numberOfFloors);
 		desiredFloor = (int) (Math.random() * numberOfFloors);
+		customerBase = new ArrayList<Customer>();
 		createCustomerBase(numberOfCustomers, startingFloor, desiredFloor);
 		createBuildingStructure(customerBase, numberOfFloors, groundFloor);
 		
