@@ -1,19 +1,15 @@
-/**
- * 
- */
 package cw3;
 
 /**
  * @author fgrami01 & jbukow01
- * 
- * Sets Customer variables and creates setters and getters
- * 
+ *
  */
+
 public class Customer {
 
 	private int startingFloor;
 	private int desiredFloor;
-	private static int customerId = 90;
+	private static int customerId = 100;
 	private boolean inElevator;
 	private boolean outElevator;
 
@@ -25,11 +21,11 @@ public class Customer {
 		this.startingFloor = startingFloor;
 	}
 
-	public int getDestinationFloor() {
+	public int getDesiredFloor() {
 		return desiredFloor;
 	}
 
-	public void setDestinationFloor(int destinationFloor) {
+	public void setDesiredFloor(int destinationFloor) {
 		this.desiredFloor = destinationFloor;
 	}
 
@@ -53,7 +49,6 @@ public class Customer {
 		this.outElevator = outElevator;
 	}
 
-	
 	/**
 	 * @param numberOfFloors
 	 * @param currentFloor
@@ -67,7 +62,3 @@ public class Customer {
 		this.outElevator = false;
 	}
 }
-	
-	
-
-
