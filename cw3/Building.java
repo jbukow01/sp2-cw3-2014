@@ -3,6 +3,8 @@
  */
 package cw3;
 
+import java.util.ArrayList;
+
 /**
  * 
  * Creates one building with an elevator object
@@ -11,11 +13,9 @@ package cw3;
  *
  */
 public class Building {
-	
-	/**TODO - create elevator in building
-	 * 
-	 *  method containing registerList and NUM_OF_FLOORS as parameters(maybe?!)
-	 *  
-	 *  */
+
+	public Building(ArrayList<Customer> customerBase, int maxFloors,int groundFloor) {
+		// TODO Auto-generated constructor stub
+	}
 
 }

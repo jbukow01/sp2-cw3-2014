@@ -10,12 +10,15 @@ import java.util.ArrayList;
  *
  */
 public class Elevator {
-	
-	private final int NUM_OF_FLOORS;
-	private ArrayList<Customer> registerList;
-	private int currentFloor;
-	private int startingFloor;
-	public int direction; 
-	public int elevatorMove;
 
+	private final int NUMBER_OF_FLOORS;
+	private ArrayList<Customer> customerBase;
+	//private static int groundFloor;
+	
+	public Elevator(ArrayList<Customer> customerBase, int maxFloors,
+			int groundFloor) {
+		this.customerBase = customerBase;
+		this.NUMBER_OF_FLOORS = maxFloors;
+		//this.groundFloor = groundFloor;
+	}
 }

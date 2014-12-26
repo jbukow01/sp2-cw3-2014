@@ -10,71 +10,64 @@ package cw3;
  * 
  */
 public class Customer {
-	
+
 	private int startingFloor;
-	private int destinationFloor;
-	private static int CustomerId;
+	private int desiredFloor;
+	private static int customerId = 100;
 	private boolean inElevator;
 	private boolean outElevator;
-	
-	
+
 	public int getStartingFloor() {
 		return startingFloor;
 	}
+
 	public void setStartingFloor(int startingFloor) {
 		this.startingFloor = startingFloor;
 	}
-	
+
 	public int getDestinationFloor() {
-		return destinationFloor;
+		return desiredFloor;
 	}
-	
+
 	public void setDestinationFloor(int destinationFloor) {
-		this.destinationFloor = destinationFloor;
+		this.desiredFloor = destinationFloor;
 	}
-	
+
 	public static int getCustomerId() {
-		return CustomerId;
+		return customerId;
 	}
-	
-	public static void setCustomerId(int customerId) {
-		CustomerId = customerId;
-	}
-	
+
 	public boolean isInElevator() {
 		return inElevator;
 	}
-	
+
 	public void setInElevator(boolean inElevator) {
 		this.inElevator = inElevator;
 	}
-	
+
 	public boolean isOutElevator() {
 		return outElevator;
 	}
-	
+
 	public void setOutElevator(boolean outElevator) {
 		this.outElevator = outElevator;
 	}
 
+	
 	/**
-	 * @author fgrami01 & jbukow01
-	 * 
-	 * Creates a customer and sets starting and destination floors
-	 * @param noOfFloors
+	 * @param numberOfFloors
 	 * @param currentFloor
-	 * @param destinationFloor
+	 * @param desiredFloor
 	 */
-	public Customer(int noOfFloors, int currentFloor, int destinationFloor)
-	{
-		CustomerId++;
+	public Customer(int numberOfFloors, int currentFloor, int desiredFloor) {
+		customerId++;
 		this.startingFloor = currentFloor;
-		this.destinationFloor = destinationFloor;
+		this.desiredFloor = desiredFloor;
 		this.inElevator = false;
-		outElevator = false;
+		this.outElevator = false;
 	}
-
-	
-	
-
 }
+	
+	
+
+
