@@ -19,7 +19,7 @@ public class Elevator {
 			int groundFloor) {
 		this.customerBase = customerBase;
 		this.NUMBER_OF_FLOORS = maxFloors;
-		// this.groundFloor = groundFloor;
+		this.currentFloor = groundFloor;
 	}
 
 	public void bottomToTopMove(int maxFloors) {

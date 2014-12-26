@@ -3,7 +3,7 @@ package cw3;
 /**
  * @author fgrami01 & jbukow01
  * 
- */ 
+ */
 
 public class Customer {
 
@@ -54,9 +54,9 @@ public class Customer {
 	 * @param currentFloor
 	 * @param desiredFloor
 	 */
-	public Customer(int numberOfFloors, int currentFloor, int desiredFloor) {
+	public Customer(int maxCustomer, int startingFloor, int desiredFloor) {
 		customerId++;
-		this.startingFloor = currentFloor;
+		this.startingFloor = startingFloor;
 		this.desiredFloor = desiredFloor;
 		this.inElevator = false;
 		this.outElevator = false;

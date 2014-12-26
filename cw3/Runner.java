@@ -11,7 +11,7 @@ public class Runner {
 
 	private static ArrayList<Customer> customerBase;
 	private static Building building;
-	private static int maxFloors;
+	private static int numberOfFloors;
 	private static int numberOfCustomers;
 	private static int startingFloor;
 	private static int desiredFloor;
@@ -19,20 +19,20 @@ public class Runner {
 
 	public static void main(String[] args) {
 
-		maxFloors = (int) (Math.random() * 30);
-		numberOfCustomers = (int) (Math.random() * 10);
-		startingFloor = (int) (Math.random() * maxFloors);
-		desiredFloor = (int) (Math.random() * maxFloors);
+		numberOfFloors = 10;
+		numberOfCustomers = 5;
+		startingFloor = (int) (Math.random() * numberOfFloors);
+		desiredFloor = (int) (Math.random() * numberOfFloors);
 		createCustomerBase(numberOfCustomers, startingFloor, desiredFloor);
-		createBuildingStructure(customerBase, maxFloors, groundFloor);
+		createBuildingStructure(customerBase, numberOfFloors, groundFloor);
 		
-		building.elevator.bottomToTopMove(maxFloors);
+		building.elevator.bottomToTopMove(numberOfFloors);
 	}
 
 	private static void createCustomerBase(int maxCustomers, int startingFloor, int desiredFloor) {
 		for (int i = 0; i < maxCustomers; i++) {
 			Customer cust = new Customer(maxCustomers, startingFloor, desiredFloor);
-			customerBase.add(cust);
+				customerBase.add(cust);
 		}
 	}
 	
