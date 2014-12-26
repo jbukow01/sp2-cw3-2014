@@ -28,12 +28,14 @@ public class Elevator {
 				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerBase.size());
 		if (currentFloor != maxFloors && !top) {
-			for (int i = 0; i < customerBase.size(); i++) {
-				if (customerBase.get(i).getStartingFloor() == currentFloor) {
-					customerBase.get(i).setInElevator(true);
-				}
-				if (customerBase.get(i).getDesiredFloor() == currentFloor) {
-					customerBase.remove(i);
+			for (int i = 0; i < maxFloors; i++) {
+				for (int j = 0; j < customerBase.size(); j++) {
+					if (customerBase.get(j).getStartingFloor() == currentFloor) {
+						customerBase.get(j).setInElevator(true);
+					}
+					if (customerBase.get(j).getDesiredFloor() == currentFloor) {
+						customerBase.remove(j);
+					}
 				}
 				System.out.println("Current floor: " + currentFloor
 						+ " Number of customers: " + customerBase.size());
@@ -41,7 +43,10 @@ public class Elevator {
 			}
 			if (currentFloor == maxFloors)
 				top = true;
-		} else if (top) {
+			System.out.println(currentFloor);
+			System.out.println(maxFloors);
+			System.out.println(top);
+		} else {
 			for (int i = 0; i < customerBase.size(); i++) {
 				if (customerBase.get(i).getStartingFloor() == currentFloor) {
 					customerBase.get(i).setInElevator(true);
@@ -54,6 +59,7 @@ public class Elevator {
 				currentFloor--;
 			}
 		}
-		System.out.println("Finished. Number of customers in the lift: " + customerBase.size());
+		System.out.println("Finished. Number of customers in the lift: "
+				+ customerBase.size());
 	}
 }

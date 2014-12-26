@@ -25,8 +25,8 @@ public class Customer {
 		return desiredFloor;
 	}
 
-	public void setDesiredFloor(int destinationFloor) {
-		this.desiredFloor = destinationFloor;
+	public void setDesiredFloor(int desiredFloor) {
+		this.desiredFloor = desiredFloor;
 	}
 
 	public static int getCustomerId() {
@@ -54,7 +54,7 @@ public class Customer {
 	 * @param currentFloor
 	 * @param desiredFloor
 	 */
-	public Customer(int maxCustomer, int startingFloor, int desiredFloor) {
+	public Customer(int startingFloor, int desiredFloor) {
 		customerId++;
 		this.startingFloor = startingFloor;
 		this.desiredFloor = desiredFloor;

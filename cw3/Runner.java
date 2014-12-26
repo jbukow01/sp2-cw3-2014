@@ -24,15 +24,15 @@ public class Runner {
 		startingFloor = (int) (Math.random() * numberOfFloors);
 		desiredFloor = (int) (Math.random() * numberOfFloors);
 		customerBase = new ArrayList<Customer>();
-		createCustomerBase(numberOfCustomers, startingFloor, desiredFloor);
+		createCustomerBase(numberOfCustomers, numberOfFloors);
 		createBuildingStructure(customerBase, numberOfFloors, groundFloor);
 		
 		building.elevator.bottomToTopMove(numberOfFloors);
 	}
 
-	private static void createCustomerBase(int maxCustomers, int startingFloor, int desiredFloor) {
+	private static void createCustomerBase(int maxCustomers, int maxFloors) {
 		for (int i = 0; i < maxCustomers; i++) {
-			Customer cust = new Customer(maxCustomers, startingFloor, desiredFloor);
+			Customer cust = new Customer((int) (Math.random() * maxFloors), (int) (Math.random() * maxFloors));
 				customerBase.add(cust);
 		}
 	}
