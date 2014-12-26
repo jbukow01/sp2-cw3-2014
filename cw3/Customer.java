@@ -13,7 +13,7 @@ public class Customer {
 
 	private int startingFloor;
 	private int desiredFloor;
-	private static int customerId = 80;
+	private static int customerId = 90;
 	private boolean inElevator;
 	private boolean outElevator;
 
