@@ -24,7 +24,6 @@ public class Elevator {
 
 	public void bottomToTopMove(int maxFloors) {
 		currentFloor = 0;
-		int custStartNumber = customerBase.size();
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerBase.size());

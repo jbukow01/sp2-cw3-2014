@@ -13,16 +13,16 @@ public class Runner {
 	private static Building building;
 	private static int numberOfFloors;
 	private static int numberOfCustomers;
-	private static int startingFloor;
-	private static int desiredFloor;
+	//private static int startingFloor;
+	//private static int desiredFloor;
 	private static int groundFloor;
 
 	public static void main(String[] args) {
 
 		numberOfFloors = (int) (Math.random() * 30);
 		numberOfCustomers = (int) (Math.random() * 100);
-		startingFloor = (int) (Math.random() * numberOfFloors);
-		desiredFloor = (int) (Math.random() * numberOfFloors);
+		//startingFloor = (int) (Math.random() * numberOfFloors);
+		//desiredFloor = (int) (Math.random() * numberOfFloors);
 		customerBase = new ArrayList<Customer>();
 		createCustomerBase(numberOfCustomers, numberOfFloors);
 		createBuildingStructure(customerBase, numberOfFloors, groundFloor);
