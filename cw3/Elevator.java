@@ -44,12 +44,9 @@ public class Elevator {
 			}
 			if (currentFloor == maxFloors)
 				top = true;
-			System.out.println(currentFloor);
-			System.out.println(maxFloors);
-			System.out.println(top);
 		}
 		if (top) {
-			for (int i = 0; i < maxFloors; i++) {
+			for (int i = maxFloors; i > 0; i--) {
 				for (int j = 0; j < customerBase.size(); j++) {
 					if (customerBase.get(j).getStartingFloor() == currentFloor) {
 						customerBase.get(j).setInElevator(true);
@@ -63,9 +60,6 @@ public class Elevator {
 						+ " Number of customers: " + customerBase.size());
 			}
 		}
-		System.out.println(currentFloor);
-		System.out.println(maxFloors);
-		System.out.println(top);
 		System.out.println("Finished. Number of customers in the lift: "
 				+ customerBase.size());
 	}

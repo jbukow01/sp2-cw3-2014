@@ -19,8 +19,8 @@ public class Runner {
 
 	public static void main(String[] args) {
 
-		numberOfFloors = (int) (Math.random() * 30) + 2;
-		numberOfCustomers = 50;
+		numberOfFloors = (int) (Math.random() * 30);
+		numberOfCustomers = (int) (Math.random() * 100);
 		startingFloor = (int) (Math.random() * numberOfFloors);
 		desiredFloor = (int) (Math.random() * numberOfFloors);
 		customerBase = new ArrayList<Customer>();
