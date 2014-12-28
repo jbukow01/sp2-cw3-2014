@@ -27,8 +27,8 @@ public class Runner {
 		building.elevator.bottomToTopMove(numberOfFloors, 4);
 	}
 
-	private static void createCustomerBase(int maxCustomers, int numberOfFloors) {
-		for (int i = 0; i < maxCustomers; i++) {
+	private static void createCustomerBase(int numberOfCustomers, int numberOfFloors) {
+		for (int i = 0; i < numberOfCustomers; i++) {
 			Customer cust = new Customer(numberOfFloors, randomFloor(0,
 					numberOfFloors), randomFloor(0, numberOfFloors));
 			if (cust.getStartingFloor() != cust.getDesiredFloor()) {
@@ -46,6 +46,7 @@ public class Runner {
 	public static int randomFloor(int start, int end) {
 		int range = (end - start) + 1;
 		int floor = start + (int) (Math.random() * range);
+
 		if (floor == 13) {
 			floor++;
 		}

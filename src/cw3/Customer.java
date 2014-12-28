@@ -54,7 +54,7 @@ public class Customer {
 	 * @param currentFloor
 	 * @param desiredFloor
 	 */
-	public Customer(int maxFloors, int startingFloor, int desiredFloor) {
+	public Customer(int numberOfFloors, int startingFloor, int desiredFloor) {
 		customerId++;
 		this.startingFloor = startingFloor;
 		this.desiredFloor = desiredFloor;

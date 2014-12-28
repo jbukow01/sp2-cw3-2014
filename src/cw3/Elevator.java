@@ -14,42 +14,46 @@ public class Elevator {
 	private int currentFloor;
 	private boolean top = false;
 
-	public Elevator(ArrayList<Customer> customerBase, int maxFloors,
+	public Elevator(ArrayList<Customer> customerBase, int numberOfFloors,
 			int startingFloor) {
 		this.customerBase = customerBase;
-		this.NUMBER_OF_FLOORS = maxFloors;
+		this.NUMBER_OF_FLOORS = numberOfFloors;
 		this.currentFloor = startingFloor;
 	}
 
-	public void bottomToTopMove(int maxFloors, int startingFloor) {
+	public void bottomToTopMove(int numberOfFloors, int startingFloor) {
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerBase.size());
-		if (currentFloor != maxFloors && !top) {
-			for (int i = 0; i < maxFloors; i++) {
+		if (currentFloor != numberOfFloors && !top) {
+			for (int i = 0; i < numberOfFloors; i++) {
 				for (int j = 0; j < customerBase.size(); j++) {
 					if (customerBase.get(j).getStartingFloor() == currentFloor) {
 						customerBase.get(j).setInElevator(true);
 					}
-					if (customerBase.get(j).getDesiredFloor() == currentFloor && customerBase.get(j).isInElevator()) {
-						customerBase.remove(j);
+					for (int k = customerBase.size() - 1; k > 0; k--) {
+						if (customerBase.get(k).getDesiredFloor() == currentFloor) {
+							customerBase.remove(k);
+						}
 					}
 				}
 				currentFloor++;
 				System.out.println("Current floor: " + currentFloor
 						+ " Number of customers: " + customerBase.size());
 			}
-			if (currentFloor == maxFloors)
+			if (currentFloor == numberOfFloors)
 				top = true;
 		}
 		if (top) {
-			for (int i = maxFloors; i > 0; i--) {
+			for (int i = numberOfFloors; i > 0; i--) {
 				for (int j = 0; j < customerBase.size(); j++) {
 					if (customerBase.get(j).getStartingFloor() == currentFloor) {
 						customerBase.get(j).setInElevator(true);
 					}
-					if (customerBase.get(j).getDesiredFloor() == currentFloor) {
-						customerBase.remove(j);
+					for (int k = customerBase.size() - 1; k > 0; k--) {
+						if (customerBase.get(k).getDesiredFloor() == currentFloor) {
+							customerBase.remove(k);
+						}
 					}
 				}
 				currentFloor--;

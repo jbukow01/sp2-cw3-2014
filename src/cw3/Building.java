@@ -11,8 +11,8 @@ public class Building {
 	
 	public Elevator elevator;
 
-	public Building(ArrayList<Customer> customerList, int maxFloors,
+	public Building(ArrayList<Customer> customerList, int numberOfFloors,
 			int startingFloor) {
-		elevator = new Elevator(customerList, maxFloors, startingFloor);
+		elevator = new Elevator(customerList, numberOfFloors, startingFloor);
 	}
 }
