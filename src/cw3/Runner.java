@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Runner {
 
-	private static ArrayList<Customer> customerBase;
+	private static ArrayList<Customer> customerList;
 	private static Building building;
 	private static int numberOfFloors;
 	private static int numberOfCustomers;
@@ -19,29 +19,44 @@ public class Runner {
 		numberOfFloors = randomFloor(5, 30);
 		numberOfCustomers = (int) (Math.random() * 10);
 
-		customerBase = new ArrayList<Customer>();
+		customerList = new ArrayList<Customer>();
 
 		createCustomerBase(numberOfCustomers, numberOfFloors);
-		createBuildingStructure(customerBase, numberOfFloors);
+		createBuildingStructure(customerList, numberOfFloors);
 
 		building.elevator.bottomToTopMove(numberOfFloors, 4);
 	}
+	
+	/**
+	 * @param numberOfCustomers
+	 * @param numberOfFloors
+	 */
 
 	private static void createCustomerBase(int numberOfCustomers, int numberOfFloors) {
 		for (int i = 0; i < numberOfCustomers; i++) {
 			Customer cust = new Customer(numberOfFloors, randomFloor(0,
 					numberOfFloors), randomFloor(0, numberOfFloors));
-			if (cust.getStartingFloor() != cust.getDesiredFloor()) {
-				customerBase.add(cust);
+			if (cust.getStartingFloor() != cust.getDestinationFloor()) {
+				customerList.add(cust);
 			}
 		}
 	}
+	
+	/**
+	 * @param customerList
+	 * @param numberOfFloors
+	 */
 
 	private static void createBuildingStructure(
-			ArrayList<Customer> customerBase, int numberOfFloors) {
-		building = new Building(customerBase, numberOfFloors, randomFloor(0,
+			ArrayList<Customer> customerList, int numberOfFloors) {
+		building = new Building(customerList, numberOfFloors, randomFloor(0,
 				numberOfFloors));
 	}
+	
+	/**
+	 * @param start
+	 * @param end
+	 */
 
 	public static int randomFloor(int start, int end) {
 		int range = (end - start) + 1;

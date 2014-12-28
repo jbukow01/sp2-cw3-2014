@@ -10,6 +10,12 @@ import java.util.ArrayList;
 public class Building {
 	
 	public Elevator elevator;
+	
+	/**
+	 * @param customerList
+	 * @param numberOfFloors
+	 * @param startingFloor
+	 */
 
 	public Building(ArrayList<Customer> customerList, int numberOfFloors,
 			int startingFloor) {

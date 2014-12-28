@@ -8,7 +8,7 @@ package cw3;
 public class Customer {
 
 	private int startingFloor;
-	private int desiredFloor;
+	private int destinationFloor;
 	private static int customerId = 100;
 	private boolean inElevator;
 	private boolean outElevator;
@@ -21,12 +21,12 @@ public class Customer {
 		this.startingFloor = startingFloor;
 	}
 
-	public int getDesiredFloor() {
-		return desiredFloor;
+	public int getDestinationFloor() {
+		return destinationFloor;
 	}
 
-	public void setDesiredFloor(int desiredFloor) {
-		this.desiredFloor = desiredFloor;
+	public void setDestinationFloor(int desiredFloor) {
+		this.destinationFloor = desiredFloor;
 	}
 
 	public static int getCustomerId() {
@@ -52,12 +52,12 @@ public class Customer {
 	/**
 	 * @param numberOfFloors
 	 * @param currentFloor
-	 * @param desiredFloor
+	 * @param destinationFloor
 	 */
-	public Customer(int numberOfFloors, int startingFloor, int desiredFloor) {
+	public Customer(int numberOfFloors, int startingFloor, int destinationFloor) {
 		customerId++;
 		this.startingFloor = startingFloor;
-		this.desiredFloor = desiredFloor;
+		this.destinationFloor = destinationFloor;
 		this.inElevator = false;
 		this.outElevator = false;
 	}
