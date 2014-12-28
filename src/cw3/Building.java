@@ -12,9 +12,11 @@ public class Building {
 	public Elevator elevator;
 	
 	/**
-	 * @param customerList
-	 * @param numberOfFloors
-	 * @param startingFloor
+	 * Creates a building
+	 * 
+	 * @param customerList list of customers to be added to the elevator
+	 * @param numberOfFloors random maximum floor
+	 * @param startingFloor random floor in which customer starts journey
 	 */
 
 	public Building(ArrayList<Customer> customerList, int numberOfFloors, int startingFloor) {

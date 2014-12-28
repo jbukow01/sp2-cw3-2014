@@ -16,24 +16,29 @@ public class Elevator {
 	private int movements;
 
 	/**
+	 * Creates elevator with customer list, number of floors and 
+	 * starting floor
+	 * 
 	 * @param customerList
 	 * @param numberOfFloors
 	 * @param startingFloor
 	 */
 
-	public Elevator(ArrayList<Customer> customerList, int numberOfFloors,
-			int startingFloor) {
+	public Elevator(ArrayList<Customer> customerList, int numberOfFloors, int startingFloor) {
 		this.customerList = customerList;
 		this.NUMBER_OF_FLOORS = numberOfFloors;
 		this.currentFloor = startingFloor;
 		movements = 0;
 	}
+	
 
 	/**
+	 * Moves the elevator according to which option of move the user chooses
+	 * 
+	 * @param option move option chosen by the user
 	 * @param numberOfFloors
 	 * @param startingFloor
 	 */
-
 	public void run(int option, int numberOfFloors, int startingFloor) {
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
@@ -49,6 +54,16 @@ public class Elevator {
 		System.out.println("Finished. Total number of moves: " + movements);
 	}
 
+	
+	/**
+	 * Moves elevator from bottom to the top of the building, picking up and
+	 * dropping customers off in desired floors. It moves from floor to floor
+	 * going up and down, even if there is no customer to pick up or drop off.
+	 * Tracks the number of moves done by elevator
+	 * 
+	 * @param numberOfFloors
+	 * @param startingFloor
+	 */
 	public void bottomToTopMove(int numberOfFloors, int startingFloor) {
 		if (currentFloor != numberOfFloors && !top) {
 			for (int i = 0; i < numberOfFloors; i++) {
@@ -57,8 +72,7 @@ public class Elevator {
 			}
 			currentFloor++;
 			movements++;
-			System.out.println("Current floor: " + currentFloor
-					+ " Number of customers: " + customerList.size());
+			System.out.println("Current floor: " + currentFloor + " Number of customers: " + customerList.size());
 		}
 		if (currentFloor == numberOfFloors) {
 			top = true;
@@ -80,6 +94,10 @@ public class Elevator {
 		//otherMove
 	}
 
+	/**
+	 * Customer goes into the elevator
+	 * 
+	 */
 	public void customerJoins() {
 		for (int i = 0; i < customerList.size(); i++) {
 			if (customerList.get(i).getStartingFloor() == currentFloor) {
@@ -88,6 +106,10 @@ public class Elevator {
 		}
 	}
 
+	/**
+	 * Customer leaves the elevator
+	 * 
+	 */
 	public void customerLeaves() {
 		for (int i = customerList.size() - 1; i >= 0; i--) {
 			if (customerList.get(i).getDestinationFloor() == currentFloor && customerList.get(i).isInElevator()) {
