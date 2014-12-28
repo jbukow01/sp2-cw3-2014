@@ -33,8 +33,8 @@ public class Runner {
 	 * If start and end floors are the same, then the customer is not added
 	 * to the list
 	 * 
-	 * @param numberOfCustomers the number of customer to be set
-	 * @param numberOfFloors the number of floors of the building
+	 * @param numberOfCustomers number of customers to be added to the elevator as chosen by user
+	 * @param numberOfFloors 
 	 */
 
 	private static void createCustomerBase(int numberOfCustomers, int numberOfFloors) {
@@ -49,8 +49,8 @@ public class Runner {
 	/**
 	 * Creates a building 
 	 * 
-	 * @param customerList number of customers in the elevator
-	 * @param numberOfFloors maximum number of floors in the elevator
+	 * @param customerList 
+	 * @param numberOfFloors 
 	 */
 
 	private static void createBuildingStructure(ArrayList<Customer> customerList, int numberOfFloors) {
@@ -59,7 +59,7 @@ public class Runner {
 	
 	
 	/**
-	 * Returns a random number between start and end.
+	 * Returns a random number between start and end
 	 * 13 cannot be assigned as start or end
 	 * 
 	 * @param start the floor in which the customer starts
