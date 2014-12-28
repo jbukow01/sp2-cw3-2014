@@ -14,7 +14,7 @@ public class Elevator {
 	private int currentFloor;
 	private boolean top = false;
 	private int movements;
-	
+
 	/**
 	 * @param customerList
 	 * @param numberOfFloors
@@ -26,8 +26,9 @@ public class Elevator {
 		this.customerList = customerList;
 		this.NUMBER_OF_FLOORS = numberOfFloors;
 		this.currentFloor = startingFloor;
+		movements = 0;
 	}
-	
+
 	/**
 	 * @param numberOfFloors
 	 * @param startingFloor
@@ -39,36 +40,22 @@ public class Elevator {
 				+ " Number of customers: " + customerList.size());
 		if (currentFloor != numberOfFloors && !top) {
 			for (int i = 0; i < numberOfFloors; i++) {
-				for (int j = 0; j < customerList.size(); j++) {
-					if (customerList.get(j).getStartingFloor() == currentFloor) {
-						customerList.get(j).setInElevator(true);
-					}
-					for (int k = customerList.size() - 1; k > 0; k--) {
-						if (customerList.get(k).getDestinationFloor() == currentFloor) {
-							customerList.remove(k);
-						}
-					}
-				}
-				currentFloor++;
-				movements++;
-				System.out.println("Current floor: " + currentFloor
-						+ " Number of customers: " + customerList.size());
+				customerJoins();
+				customerLeaves();
 			}
-			if (currentFloor == numberOfFloors)
-				top = true;
+			currentFloor++;
+			movements++;
+			System.out.println("Current floor: " + currentFloor
+					+ " Number of customers: " + customerList.size());
 		}
+		if (currentFloor == numberOfFloors) {
+			top = true;
+		}
+
 		if (top) {
 			for (int i = numberOfFloors; i > 0; i--) {
-				for (int j = 0; j < customerList.size(); j++) {
-					if (customerList.get(j).getStartingFloor() == currentFloor) {
-						customerList.get(j).setInElevator(true);
-					}
-					for (int k = customerList.size() - 1; k > 0; k--) {
-						if (customerList.get(k).getDestinationFloor() == currentFloor) {
-							customerList.remove(k);
-						}
-					}
-				}
+				customerJoins();
+				customerLeaves();
 				currentFloor--;
 				movements++;
 				System.out.println("Current floor: " + currentFloor
@@ -76,5 +63,22 @@ public class Elevator {
 			}
 		}
 		System.out.println("Finished. Total number of moves: " + movements);
+	}
+
+	public void customerJoins() {
+		for (int i = 0; i < customerList.size(); i++) {
+			if (customerList.get(i).getStartingFloor() == currentFloor) {
+				customerList.get(i).setInElevator(true);
+			}
+		}
+	}
+
+	public void customerLeaves() {
+		for (int i = customerList.size() - 1; i >= 0; i--) {
+			if (customerList.get(i).getDestinationFloor() == currentFloor
+					&& customerList.get(i).isInElevator()) {
+				customerList.remove(i);
+			}
+		}
 	}
 }
