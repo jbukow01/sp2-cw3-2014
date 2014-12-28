@@ -82,9 +82,9 @@ public class Elevator {
 			customerJoins();
 			customerLeaves();
 			for (int i = 0; i < customerList.size(); i++)
-				if (customerList.get(i).isInElevator()) {
+				if (customerList.get(i).isInElevator() && customerList.get(i).getDestinationFloor() > currentFloor) {
 					direction = 1;
-				} else if (customerList.get(i).getStartingFloor() > currentFloor) {
+				} else if (customerList.get(i).getStartingFloor() > currentFloor && customerList.get(i).getStartingFloor() > currentFloor) {
 					direction = 1;
 				} else {
 					direction = -1;
