@@ -75,8 +75,7 @@ public class Elevator {
 
 	public void customerLeaves() {
 		for (int i = customerList.size() - 1; i >= 0; i--) {
-			if (customerList.get(i).getDestinationFloor() == currentFloor
-					&& customerList.get(i).isInElevator()) {
+			if (customerList.get(i).getDestinationFloor() == currentFloor && customerList.get(i).isInElevator()) {
 				customerList.remove(i);
 			}
 		}

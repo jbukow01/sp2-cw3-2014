@@ -28,14 +28,18 @@ public class Runner {
 	}
 	
 	/**
-	 * @param numberOfCustomers
-	 * @param numberOfFloors
+	 * Adds a set of customers to the customerList
+	 * Sets a random start and end destination floors for each customer
+	 * If start and end floors are the same, then the customer is not added
+	 * to the list
+	 * 
+	 * @param numberOfCustomers the number of customer to be set
+	 * @param numberOfFloors the number of floors of the building
 	 */
 
 	private static void createCustomerBase(int numberOfCustomers, int numberOfFloors) {
 		for (int i = 0; i < numberOfCustomers; i++) {
-			Customer cust = new Customer(numberOfFloors, randomFloor(0,
-					numberOfFloors), randomFloor(0, numberOfFloors));
+			Customer cust = new Customer(numberOfFloors, randomFloor(0,numberOfFloors), randomFloor(0, numberOfFloors));
 			if (cust.getStartingFloor() != cust.getDestinationFloor()) {
 				customerList.add(cust);
 			}
@@ -43,21 +47,25 @@ public class Runner {
 	}
 	
 	/**
-	 * @param customerList
-	 * @param numberOfFloors
+	 * Creates a building 
+	 * 
+	 * @param customerList number of customers in the elevator
+	 * @param numberOfFloors maximum number of floors in the elevator
 	 */
 
-	private static void createBuildingStructure(
-			ArrayList<Customer> customerList, int numberOfFloors) {
-		building = new Building(customerList, numberOfFloors, randomFloor(0,
-				numberOfFloors));
+	private static void createBuildingStructure(ArrayList<Customer> customerList, int numberOfFloors) {
+		building = new Building(customerList, numberOfFloors, randomFloor(0,numberOfFloors));
 	}
 	
+	
 	/**
-	 * @param start
-	 * @param end
+	 * Returns a random number between start and end.
+	 * 13 cannot be assigned as start or end
+	 * 
+	 * @param start the floor in which the customer starts
+	 * @param end the floor in which the customer leaves the elevator
+	 * @return 
 	 */
-
 	public static int randomFloor(int start, int end) {
 		int range = (end - start) + 1;
 		int floor = start + (int) (Math.random() * range);
