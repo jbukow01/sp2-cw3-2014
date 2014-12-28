@@ -21,7 +21,7 @@ public class Runner {
 
 		customerList = new ArrayList<Customer>();
 
-		createCustomerBase(numberOfCustomers, numberOfFloors);
+		createCustomerList(numberOfCustomers, numberOfFloors);
 		createBuildingStructure(customerList, numberOfFloors);
 
 		building.elevator.run(1, numberOfFloors, 0);
@@ -37,7 +37,7 @@ public class Runner {
 	 * @param numberOfFloors 
 	 */
 
-	private static void createCustomerBase(int numberOfCustomers, int numberOfFloors) {
+	private static void createCustomerList(int numberOfCustomers, int numberOfFloors) {
 		for (int i = 0; i < numberOfCustomers; i++) {
 			Customer cust = new Customer(numberOfFloors, randomFloor(0,numberOfFloors), randomFloor(0, numberOfFloors));
 			if (cust.getStartingFloor() != cust.getDestinationFloor()) {
