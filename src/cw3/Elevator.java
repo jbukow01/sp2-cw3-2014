@@ -41,10 +41,8 @@ public class Elevator {
 	 * @param startingFloor
 	 */
 	public void run(int option, int numberOfFloors, int startingFloor) {
-		System.out.println("Starting floor: " + currentFloor
-				+ " Number of floors: " + NUMBER_OF_FLOORS
+		System.out.println("Starting floor: " + currentFloor + " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerList.size());
-		
 		if (option == 1) {
 			bottomToTopMove(numberOfFloors, startingFloor);
 		} else if (option == 2) {
@@ -55,7 +53,7 @@ public class Elevator {
 		System.out.println("Finished. Total number of moves: " + movements);
 	}
 	
-	private void move() {
+	public void move() {
 		
 		if (direction == 1 && currentFloor == NUMBER_OF_FLOORS) {
 			direction = -1;
@@ -63,6 +61,9 @@ public class Elevator {
 		else if (direction == -1 && currentFloor == 0) {
 			direction = 1;
 		}
+		
+		currentFloor += direction;
+		movements++;
 	}
 
 	
@@ -95,8 +96,7 @@ public class Elevator {
 				customerLeaves();
 				currentFloor--;
 				movements++;
-				System.out.println("Current floor: " + currentFloor
-						+ " Number of customers: " + customerList.size());
+				System.out.println("Current floor: " + currentFloor + " Number of customers: " + customerList.size());
 			}
 		}
 	}

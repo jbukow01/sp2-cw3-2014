@@ -69,7 +69,6 @@ public class Runner {
 	public static int randomFloor(int start, int end) {
 		int range = (end - start) + 1;
 		int floor = start + (int) (Math.random() * range);
-
 		if (floor == 13) {
 			floor++;
 		}
