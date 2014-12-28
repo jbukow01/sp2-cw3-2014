@@ -14,6 +14,7 @@ public class Elevator {
 	private int currentFloor;
 	private boolean top = false;
 	private int movements;
+	private int direction;
 
 	/**
 	 * @param customerList
@@ -47,6 +48,16 @@ public class Elevator {
 			System.out.println("Please choose correct option! Options: (1, 2)");
 		}
 		System.out.println("Finished. Total number of moves: " + movements);
+	}
+	
+	private void move() {
+		
+		if (direction == 1 && currentFloor == NUMBER_OF_FLOORS) {
+			direction = -1;
+		}
+		else if (direction == -1 && currentFloor == 0) {
+			direction = 1;
+		}
 	}
 
 	public void bottomToTopMove(int numberOfFloors, int startingFloor) {
