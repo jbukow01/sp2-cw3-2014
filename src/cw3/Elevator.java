@@ -36,8 +36,7 @@ public class Elevator {
 	/**
 	 * Moves the elevator according to which option of move the user chooses
 	 * 
-	 * @param option
-	 *            move option chosen by the user
+	 * @param option move option chosen by the user
 	 * @param numberOfFloors
 	 * @param startingFloor
 	 */
@@ -50,7 +49,7 @@ public class Elevator {
 		} else if (option == 2) {
 			// otherStrategy();
 		} else {
-			System.out.println("Please choose correct option! Options: (1, 2)");
+			System.out.println("Please choose an option between 1 and 2.");
 		}
 		System.out.println("Finished. Total number of moves: " + movements);
 	}
