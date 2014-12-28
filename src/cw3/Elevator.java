@@ -53,7 +53,7 @@ public class Elevator {
 		System.out.println("Finished. Total number of moves: " + movements);
 	}
 	
-	private void move() {
+	public void move() {
 		
 		if (direction == 1 && currentFloor == NUMBER_OF_FLOORS) {
 			direction = -1;
@@ -61,6 +61,9 @@ public class Elevator {
 		else if (direction == -1 && currentFloor == 0) {
 			direction = 1;
 		}
+		
+		currentFloor += direction;
+		movements++;
 	}
 
 	
@@ -93,8 +96,7 @@ public class Elevator {
 				customerLeaves();
 				currentFloor--;
 				movements++;
-				System.out.println("Current floor: " + currentFloor
-						+ " Number of customers: " + customerList.size());
+				System.out.println("Current floor: " + currentFloor + " Number of customers: " + customerList.size());
 			}
 		}
 	}
