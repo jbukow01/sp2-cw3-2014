@@ -55,7 +55,15 @@ public class Elevator {
 	}
 
 	public void move() {
-
+		
+		if (direction == 0) {
+			if (currentFloor < NUMBER_OF_FLOORS) {
+				direction = 1;
+			}
+			else {
+				direction = -1;
+			}
+		}
 		if (direction == 1 && currentFloor == NUMBER_OF_FLOORS) {
 			direction = -1;
 		} else if (direction == -1 && currentFloor == 0) {
@@ -83,9 +91,9 @@ public class Elevator {
 			customerLeaves();
 			for (int i = 0; i < customerList.size(); i++)
 				if (customerList.get(i).isInElevator() && customerList.get(i).getDestinationFloor() > currentFloor) {
-					direction = 1;
+					direction = +1;
 				} else if (customerList.get(i).getStartingFloor() > currentFloor && customerList.get(i).getStartingFloor() > currentFloor) {
-					direction = 1;
+					direction = +1;
 				} else {
 					direction = -1;
 				}
