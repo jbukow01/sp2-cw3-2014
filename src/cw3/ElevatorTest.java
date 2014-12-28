@@ -13,7 +13,7 @@ public class ElevatorTest {
 
 	@Test
 	public void test() {
-		Customer cust = new Customer(2, 4);
+		Customer cust = new Customer(8, 2, 4);
 		ArrayList<Customer> customersBase = new ArrayList<Customer>();
 		customersBase.add(cust);
 		Elevator elevator = new Elevator(customersBase, 8, 0);

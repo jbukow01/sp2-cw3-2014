@@ -13,12 +13,11 @@ public class Runner {
 	private static Building building;
 	private static int numberOfFloors;
 	private static int numberOfCustomers;
-	private static int startingFloor;
 
 	public static void main(String[] args) {
 
-		numberOfFloors = (int) (Math.random() * 30);
-		numberOfCustomers = (int) (Math.random() * 100);
+		numberOfFloors = randomFloor(5, 30);
+		numberOfCustomers = (int) (Math.random() * 10);
 
 		customerBase = new ArrayList<Customer>();
 
@@ -30,8 +29,8 @@ public class Runner {
 
 	private static void createCustomerBase(int maxCustomers, int numberOfFloors) {
 		for (int i = 0; i < maxCustomers; i++) {
-			Customer cust = new Customer((int) (Math.random() * numberOfFloors),
-					(int) (Math.random() * numberOfFloors));
+			Customer cust = new Customer(numberOfFloors, randomFloor(0,
+					numberOfFloors), randomFloor(0, numberOfFloors));
 			if (cust.getStartingFloor() != cust.getDesiredFloor()) {
 				customerBase.add(cust);
 			}
@@ -39,8 +38,8 @@ public class Runner {
 	}
 
 	private static void createBuildingStructure(
-			ArrayList<Customer> customerBase, int maxFloors) {
-		building = new Building(customerBase, maxFloors, randomFloor(0,
+			ArrayList<Customer> customerBase, int numberOfFloors) {
+		building = new Building(customerBase, numberOfFloors, randomFloor(0,
 				numberOfFloors));
 	}
 
