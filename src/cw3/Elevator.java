@@ -17,56 +17,57 @@ public class Elevator {
 	private int direction;
 
 	/**
-	 * Creates elevator with customer list, number of floors and 
-	 * starting floor
+	 * Creates elevator with customer list, number of floors and starting floor
 	 * 
 	 * @param customerList
 	 * @param numberOfFloors
 	 * @param startingFloor
 	 */
 
-	public Elevator(ArrayList<Customer> customerList, int numberOfFloors, int startingFloor) {
+	public Elevator(ArrayList<Customer> customerList, int numberOfFloors,
+			int startingFloor) {
 		this.customerList = customerList;
 		this.NUMBER_OF_FLOORS = numberOfFloors;
 		this.currentFloor = startingFloor;
 		movements = 0;
 	}
-	
 
 	/**
 	 * Moves the elevator according to which option of move the user chooses
 	 * 
-	 * @param option move option chosen by the user
+	 * @param option
+	 *            move option chosen by the user
 	 * @param numberOfFloors
 	 * @param startingFloor
 	 */
 	public void run(int option, int numberOfFloors, int startingFloor) {
-		System.out.println("Starting floor: " + currentFloor + " Number of floors: " + NUMBER_OF_FLOORS
+		System.out.println("Starting floor: " + currentFloor
+				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerList.size());
 		if (option == 1) {
-			bottomToTopMove(numberOfFloors, startingFloor);
+			defaultStrategy(numberOfFloors, startingFloor);
 		} else if (option == 2) {
-			// otherMove();
+			// otherStrategy();
 		} else {
 			System.out.println("Please choose correct option! Options: (1, 2)");
 		}
 		System.out.println("Finished. Total number of moves: " + movements);
 	}
-	
+
 	public void move() {
-		
+
 		if (direction == 1 && currentFloor == NUMBER_OF_FLOORS) {
 			direction = -1;
-		}
-		else if (direction == -1 && currentFloor == 0) {
+		} else if (direction == -1 && currentFloor == 0) {
 			direction = 1;
 		}
-		
+
 		currentFloor += direction;
 		movements++;
+		System.out.print("Current floor: " + currentFloor);
+		System.out.println(" Number of customers: " + customerList.size());
 	}
 
-	
 	/**
 	 * Moves elevator from bottom to the top of the building, picking up and
 	 * dropping customers off in desired floors. It moves from floor to floor
@@ -76,33 +77,24 @@ public class Elevator {
 	 * @param numberOfFloors
 	 * @param startingFloor
 	 */
-	public void bottomToTopMove(int numberOfFloors, int startingFloor) {
-		if (currentFloor != numberOfFloors && !top) {
-			for (int i = 0; i < numberOfFloors; i++) {
-				customerJoins();
-				customerLeaves();
+	public void defaultStrategy(int numberOfFloors, int startingFloor) {
+		customerJoins();
+		customerLeaves();
+		for (int i = 0; i < customerList.size(); i++)
+			if (customerList.get(i).isInElevator()) {
+				direction++;
+			} else if (customerList.get(i).getStartingFloor() > currentFloor) {
+				direction++;
+			} else {
+				direction--;
 			}
-			currentFloor++;
-			movements++;
-			System.out.println("Current floor: " + currentFloor + " Number of customers: " + customerList.size());
-		}
-		if (currentFloor == numberOfFloors) {
-			top = true;
-		}
-
-		if (top) {
-			for (int i = numberOfFloors; i > 0; i--) {
-				customerJoins();
-				customerLeaves();
-				currentFloor--;
-				movements++;
-				System.out.println("Current floor: " + currentFloor + " Number of customers: " + customerList.size());
-			}
-		}
+		movements++;
+		System.out.println("Current floor: " + currentFloor
+				+ " Number of customers: " + customerList.size());
 	}
-	
+
 	private void otherMove() {
-		//otherMove
+		// otherMove
 	}
 
 	/**
@@ -123,7 +115,8 @@ public class Elevator {
 	 */
 	public void customerLeaves() {
 		for (int i = customerList.size() - 1; i >= 0; i--) {
-			if (customerList.get(i).getDestinationFloor() == currentFloor && customerList.get(i).isInElevator()) {
+			if (customerList.get(i).getDestinationFloor() == currentFloor
+					&& customerList.get(i).isInElevator()) {
 				customerList.remove(i);
 			}
 		}
