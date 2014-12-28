@@ -41,10 +41,8 @@ public class Elevator {
 	 * @param startingFloor
 	 */
 	public void run(int option, int numberOfFloors, int startingFloor) {
-		System.out.println("Starting floor: " + currentFloor
-				+ " Number of floors: " + NUMBER_OF_FLOORS
+		System.out.println("Starting floor: " + currentFloor + " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerList.size());
-		
 		if (option == 1) {
 			bottomToTopMove(numberOfFloors, startingFloor);
 		} else if (option == 2) {
