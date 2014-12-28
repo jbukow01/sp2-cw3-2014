@@ -12,7 +12,7 @@ public class Building {
 	public Elevator elevator;
 
 	public Building(ArrayList<Customer> customerList, int maxFloors,
-			int groundFloor) {
-		elevator = new Elevator(customerList, maxFloors, groundFloor);
+			int startingFloor) {
+		elevator = new Elevator(customerList, maxFloors, startingFloor);
 	}
 }

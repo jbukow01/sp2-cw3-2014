@@ -11,19 +11,17 @@ public class Elevator {
 
 	private final int NUMBER_OF_FLOORS;
 	private ArrayList<Customer> customerBase;
-	// private static int groundFloor;
 	private int currentFloor;
 	private boolean top = false;
 
 	public Elevator(ArrayList<Customer> customerBase, int maxFloors,
-			int groundFloor) {
+			int startingFloor) {
 		this.customerBase = customerBase;
 		this.NUMBER_OF_FLOORS = maxFloors;
-		this.currentFloor = groundFloor;
+		this.currentFloor = startingFloor;
 	}
 
-	public void bottomToTopMove(int maxFloors) {
-		currentFloor = 0;
+	public void bottomToTopMove(int maxFloors, int startingFloor) {
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerBase.size());
@@ -33,7 +31,7 @@ public class Elevator {
 					if (customerBase.get(j).getStartingFloor() == currentFloor) {
 						customerBase.get(j).setInElevator(true);
 					}
-					if (customerBase.get(j).getDesiredFloor() == currentFloor) {
+					if (customerBase.get(j).getDesiredFloor() == currentFloor && customerBase.get(j).isInElevator()) {
 						customerBase.remove(j);
 					}
 				}

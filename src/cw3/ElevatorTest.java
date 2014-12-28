@@ -17,7 +17,7 @@ public class ElevatorTest {
 		ArrayList<Customer> customersBase = new ArrayList<Customer>();
 		customersBase.add(cust);
 		Elevator elevator = new Elevator(customersBase, 8, 0);
-		elevator.bottomToTopMove(8);
+		elevator.bottomToTopMove(8, 4);
 		assertEquals("one customer going up", 8);
 	}
 }
