@@ -49,7 +49,7 @@ public class Elevator {
 		} else if (option == 2) {
 			// otherStrategy();
 		} else {
-			System.out.println("Please choose an option between 1 and 2.");
+			System.out.println("Please choose option 1 or 2.");
 		}
 		System.out.println("Finished. Total number of moves: " + movements);
 	}
