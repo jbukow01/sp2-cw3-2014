@@ -17,8 +17,7 @@ public class Building {
 	 * @param startingFloor
 	 */
 
-	public Building(ArrayList<Customer> customerList, int numberOfFloors,
-			int startingFloor) {
+	public Building(ArrayList<Customer> customerList, int numberOfFloors, int startingFloor) {
 		elevator = new Elevator(customerList, numberOfFloors, startingFloor);
 	}
 }
