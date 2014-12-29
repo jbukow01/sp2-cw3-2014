@@ -24,7 +24,7 @@ public class Runner {
 		createCustomerList(numberOfCustomers, numberOfFloors);
 		createBuildingStructure(customerList, numberOfFloors);
 
-		building.elevator.run(1);
+		building.elevator.run(2);
 	}
 	
 	/**
