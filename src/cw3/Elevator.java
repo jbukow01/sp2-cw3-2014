@@ -12,9 +12,8 @@ public class Elevator {
 	private final int NUMBER_OF_FLOORS;
 	private ArrayList<Customer> customerList;
 	private int currentFloor;
-	private boolean top = false;
-	private int movements;
-	private int direction;
+	public int movements;
+	public int direction;
 
 	/**
 	 * Creates elevator with customer list, number of floors and starting floor
@@ -30,37 +29,42 @@ public class Elevator {
 		this.NUMBER_OF_FLOORS = numberOfFloors;
 		this.currentFloor = startingFloor;
 		movements = 0;
-		direction = 1;
+		direction = 0;
 	}
 
 	/**
 	 * Moves the elevator according to which option of move the user chooses
 	 * 
-	 * @param option move option chosen by the user
+	 * @param option
+	 *            move option chosen by the user
 	 * @param numberOfFloors
 	 * @param startingFloor
 	 */
-	public void run(int option, int numberOfFloors, int startingFloor) {
+	public void run(int option) {
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerList.size());
-		if (option == 1) {
-			defaultStrategy();
-		} else if (option == 2) {
-			// otherStrategy();
-		} else {
-			System.out.println("Please choose option 1 or 2.");
+		while (!customerList.isEmpty()) {
+			customerJoins();
+			customerLeaves();
+			if (option == 1) {
+				defaultStrategy();
+			} else if (option == 2) {
+				// otherStrategy();
+			} else {
+				System.out.println("Please choose option 1 or 2.");
+			}
+			System.out.println("Finished. Total number of moves: " + movements);
+			break;
 		}
-		System.out.println("Finished. Total number of moves: " + movements);
 	}
 
 	public void move() {
-		
+
 		if (direction == 0) {
 			if (currentFloor < NUMBER_OF_FLOORS) {
 				direction = 1;
-			}
-			else {
+			} else {
 				direction = -1;
 			}
 		}
@@ -86,23 +90,19 @@ public class Elevator {
 	 * @param startingFloor
 	 */
 	public void defaultStrategy() {
-		while (!customerList.isEmpty()) {
-			customerJoins();
-			customerLeaves();
-			for (int i = 0; i < customerList.size(); i++)
-				if (customerList.get(i).isInElevator() && customerList.get(i).getDestinationFloor() > currentFloor) {
-					direction = +1;
-				} else if (customerList.get(i).getStartingFloor() > currentFloor && customerList.get(i).getStartingFloor() > currentFloor) {
-					direction = +1;
-				} else {
-					direction = -1;
-				}
-			
-			currentFloor = currentFloor + direction;
-			movements++;
-			System.out.println("Current floor: " + currentFloor
-					+ " Number of customers: " + customerList.size());
-		}
+		for (int i = 0; i < customerList.size(); i++)
+			if (customerList.get(i).isInElevator()
+					&& customerList.get(i).getDestinationFloor() > currentFloor) {
+				direction = +1;
+			} else if (customerList.get(i).getStartingFloor() > currentFloor
+					&& customerList.get(i).getStartingFloor() > currentFloor) {
+				direction = +1;
+			} else {
+				direction = -1;
+			}
+
+		currentFloor = currentFloor + direction;
+		movements++;
 	}
 
 	private void otherMove() {
