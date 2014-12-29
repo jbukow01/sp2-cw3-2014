@@ -5,6 +5,13 @@ import java.util.ArrayList;
 /**
  * @author fgrami01 & jbukow01
  * 
+ *         Creates an elevator populating it with information gathered from the
+ *         user It then moves according to the strategy chosen
+ * 
+ *         There are also two methods one to pick up and one to drop customer
+ *         off, they are called each time the elevator arrives at a floor to
+ *         check if there is a customer to be picked up or dropped off
+ * 
  */
 
 public class Elevator {

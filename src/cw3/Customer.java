@@ -3,6 +3,9 @@ package cw3;
 /**
  * @author fgrami01 & jbukow01
  * 
+ *         Customer class - creates a single customer and holds all information
+ *         needed for customer to ride the elevator
+ * 
  */
 
 public class Customer {

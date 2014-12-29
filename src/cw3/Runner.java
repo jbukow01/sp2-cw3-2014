@@ -6,6 +6,15 @@ import java.util.Scanner;
 /**
  * @author fgrami01 & jbukow01
  * 
+ *         This is the driving program It takes the inputs from the user,
+ *         creates a customer list, a building and makes the elevator run
+ *         according to the option chosen It prints all results as they happen
+ *         and also how many moves it took for the customer list to reach
+ *         zero(all customers out of the elevator)
+ * 
+ *         There is also a method to randomly create the starting and
+ *         destination floors
+ * 
  */
 
 public class Runner {
@@ -93,8 +102,9 @@ public class Runner {
 	}
 
 	/**
-	 * Returns a random number between start and end 13 cannot be assigned as
-	 * start or end
+	 * Returns a random number between start and end
+	 * 
+	 * 13 cannot be assigned as start or end
 	 * 
 	 * @param start
 	 *            the floor in which the customer starts
