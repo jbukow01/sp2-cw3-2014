@@ -19,36 +19,36 @@ public class Runner {
 	private static Scanner optionCheck;
 
 	public static void main(String[] args) {
-		
+
 		System.out.print("Please enter number of floors: ");
 		nof = new Scanner(System.in);
-        while (!nof.hasNextInt()) {
-            System.out.print("Please enter number of floors: ");
-            nof.next();
-        }
-        numberOfFloors = nof.nextInt();
-        
+		while (!nof.hasNextInt()) {
+			System.out.print("Please enter number of floors: ");
+			nof.next();
+		}
+		numberOfFloors = nof.nextInt();
+
 		System.out.print("Please enter number of customers: ");
 		noc = new Scanner(System.in);
-        while (!noc.hasNextInt()) {
-            System.out.print("Please enter number of customers: ");
-            noc.next();
-        }
+		while (!noc.hasNextInt()) {
+			System.out.print("Please enter number of customers: ");
+			noc.next();
+		}
 		numberOfCustomers = noc.nextInt();
-		
+
 		System.out.print("Please enter strategy option (1, 2): ");
 		optionCheck = new Scanner(System.in);
-        while (!optionCheck.hasNextInt()) {
-            System.out.print("Please choose option 1 or 2: ");
-            optionCheck.next();
-        }
+		while (!optionCheck.hasNextInt()) {
+			System.out.print("Please choose option 1 or 2: ");
+			optionCheck.next();
+		}
 		int option = optionCheck.nextInt();
 		while (option != 1 && option != 2) {
 			System.out.print("Please choose option 1 or 2: ");
 			option = optionCheck.nextInt();
-			
+
 		}
-		
+
 		customerList = new ArrayList<Customer>();
 
 		createCustomerList(numberOfCustomers, numberOfFloors);

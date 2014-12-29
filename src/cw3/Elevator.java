@@ -45,7 +45,9 @@ public class Elevator {
 		System.out.println("----------------");
 		System.out.println("Strategy used: " + option);
 		int leftStarting = Runner.numberOfCustomers - customerList.size();
-		System.out.println("Number of customer that left on the starting floor: " + leftStarting);
+		System.out
+				.println("Number of customer that left on the starting floor: "
+						+ leftStarting);
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers waiting: " + customerList.size());
@@ -60,7 +62,8 @@ public class Elevator {
 				otherStrategy();
 			}
 		}
-		System.out.println("Finished at floor: " + currentFloor + ". Total number of moves: " + movements);
+		System.out.println("Finished at floor: " + currentFloor
+				+ ". Total number of moves: " + movements);
 	}
 
 	/**
