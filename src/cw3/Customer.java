@@ -11,7 +11,6 @@ public class Customer {
 	private int destinationFloor;
 	private static int customerId = 99;
 	private boolean inElevator;
-	private boolean outElevator;
 
 	public int getStartingFloor() {
 		return startingFloor;
@@ -41,14 +40,6 @@ public class Customer {
 		this.inElevator = inElevator;
 	}
 
-	public boolean isOutElevator() {
-		return outElevator;
-	}
-
-	public void setOutElevator(boolean outElevator) {
-		this.outElevator = outElevator;
-	}
-
 	/**
 	 * Creates a customer and sets the the number of floors in the building as
 	 * well as starting and destination floors
@@ -65,6 +56,5 @@ public class Customer {
 		this.startingFloor = startingFloor;
 		this.destinationFloor = destinationFloor;
 		this.inElevator = false;
-		this.outElevator = false;
 	}
 }
