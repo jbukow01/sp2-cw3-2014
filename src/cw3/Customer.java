@@ -9,7 +9,7 @@ public class Customer {
 
 	private int startingFloor;
 	private int destinationFloor;
-	private static int customerId = 100;
+	private static int customerId = 99;
 	private boolean inElevator;
 	private boolean outElevator;
 
