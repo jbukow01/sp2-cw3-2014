@@ -14,6 +14,8 @@ public class Elevator {
 	private int currentFloor;
 	private int movements;
 	private int direction;
+	private int in = 0;
+	private int out = 0;
 
 	/**
 	 * Creates elevator with customer list, number of floors and starting floor
@@ -44,9 +46,9 @@ public class Elevator {
 	public void run(int option) {
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
-				+ " Number of customers: " + customerList.size());
+				+ " Number of customers waiting: " + customerList.size());
 		System.out.println("Current floor: " + currentFloor
-				+ " Number of customers: " + customerList.size());
+				+ " Number of customers waiting: " + customerList.size());
 		while (!customerList.isEmpty()) {
 			customerJoins();
 			customerLeaves();
@@ -79,7 +81,7 @@ public class Elevator {
 		currentFloor += direction;
 		movements++;
 		System.out.println("Current floor: " + currentFloor
-				+ " Number of customers: " + customerList.size());
+				+ " Number of customers waiting: " + customerList.size());
 	}
 
 	/**
@@ -91,6 +93,7 @@ public class Elevator {
 	 * @param numberOfFloors
 	 * @param startingFloor
 	 */
+
 	public void otherStrategy() {
 		for (int i = 0; i < customerList.size(); i++)
 			if (customerList.get(i).isInElevator()
@@ -105,8 +108,11 @@ public class Elevator {
 
 		currentFloor += direction;
 		movements++;
+		if (currentFloor == -1) {
+			currentFloor++;
+		}
 		System.out.println("Current floor: " + currentFloor
-				+ " Number of customers: " + customerList.size());
+				+ " Number of customers waiting: " + customerList.size());
 	}
 
 	/**
@@ -117,6 +123,7 @@ public class Elevator {
 		for (int i = 0; i < customerList.size(); i++) {
 			if (customerList.get(i).getStartingFloor() == currentFloor) {
 				customerList.get(i).setInElevator(true);
+				in++;
 			}
 		}
 	}
@@ -130,6 +137,7 @@ public class Elevator {
 			if (customerList.get(i).getDestinationFloor() == currentFloor
 					&& customerList.get(i).isInElevator()) {
 				customerList.remove(i);
+				out++;
 			}
 		}
 	}
