@@ -12,8 +12,8 @@ public class Elevator {
 	private final int NUMBER_OF_FLOORS;
 	private ArrayList<Customer> customerList;
 	private int currentFloor;
-	public int movements;
-	public int direction;
+	private int movements;
+	private int direction;
 
 	/**
 	 * Creates elevator with customer list, number of floors and starting floor
@@ -28,8 +28,8 @@ public class Elevator {
 		this.customerList = customerList;
 		this.NUMBER_OF_FLOORS = numberOfFloors;
 		this.currentFloor = startingFloor;
-		movements = 0;
-		direction = 0;
+		this.movements = 0;
+		this.direction = 0;
 	}
 
 	/**

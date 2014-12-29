@@ -50,12 +50,15 @@ public class Customer {
 	}
 
 	/**
-	 * Creates a customer and sets the the number of floors in the building
-	 * as well as starting and destination floors
+	 * Creates a customer and sets the the number of floors in the building as
+	 * well as starting and destination floors
 	 * 
-	 * @param numberOfFloors the number of floors in the building
-	 * @param currentFloor random maximum floor
-	 * @param destinationFloor the desired floor of each customer
+	 * @param numberOfFloors
+	 *            the number of floors in the building
+	 * @param currentFloor
+	 *            random maximum floor
+	 * @param destinationFloor
+	 *            the desired floor of each customer
 	 */
 	public Customer(int numberOfFloors, int startingFloor, int destinationFloor) {
 		customerId++;

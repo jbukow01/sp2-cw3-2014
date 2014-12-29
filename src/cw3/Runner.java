@@ -26,45 +26,51 @@ public class Runner {
 
 		building.elevator.run(2);
 	}
-	
+
 	/**
-	 * Adds a set of customers to the customerList
-	 * Sets a random start and end destination floors for each customer
-	 * If start and end floors are the same, then the customer is not added
-	 * to the list
+	 * Adds a set of customers to the customerList Sets a random start and end
+	 * destination floors for each customer If start and end floors are the
+	 * same, then the customer is not added to the list
 	 * 
-	 * @param numberOfCustomers number of customers to be added to the elevator as chosen by user
-	 * @param numberOfFloors 
+	 * @param numberOfCustomers
+	 *            number of customers to be added to the elevator as chosen by
+	 *            user
+	 * @param numberOfFloors
 	 */
 
-	private static void createCustomerList(int numberOfCustomers, int numberOfFloors) {
+	private static void createCustomerList(int numberOfCustomers,
+			int numberOfFloors) {
 		for (int i = 0; i < numberOfCustomers; i++) {
-			Customer cust = new Customer(numberOfFloors, randomFloor(0,numberOfFloors), randomFloor(0, numberOfFloors));
+			Customer cust = new Customer(numberOfFloors, randomFloor(0,
+					numberOfFloors), randomFloor(0, numberOfFloors));
 			if (cust.getStartingFloor() != cust.getDestinationFloor()) {
 				customerList.add(cust);
 			}
 		}
 	}
-	
+
 	/**
-	 * Creates a building 
+	 * Creates a building
 	 * 
-	 * @param customerList 
-	 * @param numberOfFloors 
+	 * @param customerList
+	 * @param numberOfFloors
 	 */
 
-	private static void createBuildingStructure(ArrayList<Customer> customerList, int numberOfFloors) {
-		building = new Building(customerList, numberOfFloors, randomFloor(0,numberOfFloors));
+	private static void createBuildingStructure(
+			ArrayList<Customer> customerList, int numberOfFloors) {
+		building = new Building(customerList, numberOfFloors, randomFloor(0,
+				numberOfFloors));
 	}
-	
-	
+
 	/**
-	 * Returns a random number between start and end
-	 * 13 cannot be assigned as start or end
+	 * Returns a random number between start and end 13 cannot be assigned as
+	 * start or end
 	 * 
-	 * @param start the floor in which the customer starts
-	 * @param end the floor in which the customer leaves the elevator
-	 * @return 
+	 * @param start
+	 *            the floor in which the customer starts
+	 * @param end
+	 *            the floor in which the customer leaves the elevator
+	 * @return
 	 */
 	public static int randomFloor(int start, int end) {
 		int range = (end - start) + 1;
