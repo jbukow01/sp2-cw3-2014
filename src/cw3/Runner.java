@@ -22,16 +22,31 @@ public class Runner {
 		
 		System.out.print("Please enter number of floors: ");
 		nof = new Scanner(System.in);
-		numberOfFloors = nof.nextInt();
+        while (!nof.hasNextInt()) {
+            System.out.print("Please enter number of floors: ");
+            nof.next();
+        }
+        numberOfFloors = nof.nextInt();
+        
 		System.out.print("Please enter number of customers: ");
 		noc = new Scanner(System.in);
+        while (!noc.hasNextInt()) {
+            System.out.print("Please enter number of customers: ");
+            noc.next();
+        }
 		numberOfCustomers = noc.nextInt();
+		
 		System.out.print("Please enter strategy option (1, 2): ");
 		option = new Scanner(System.in);
+        while (!option.hasNextInt()) {
+            System.out.print("Please choose option 1 or 2: ");
+            option.next();
+        }
 		int check = option.nextInt();
 		while (check != 1 && check != 2) {
 			System.out.print("Please choose option 1 or 2: ");
 			check = option.nextInt();
+			
 		}
 		
 		customerList = new ArrayList<Customer>();
@@ -95,5 +110,14 @@ public class Runner {
 			floor++;
 		}
 		return floor;
+	}
+	
+	public static boolean isInteger(String x) {
+	    try { 
+	        Integer.parseInt(x); 
+	    } catch(NumberFormatException e) { 
+	        return false; 
+	    }
+	    return true;
 	}
 }
