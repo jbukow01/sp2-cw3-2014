@@ -42,6 +42,8 @@ public class Elevator {
 	 */
 
 	public void run(int option) {
+		System.out.println("----------------");
+		System.out.println("Strategy used: " + option);
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers waiting: " + customerList.size());
@@ -54,8 +56,6 @@ public class Elevator {
 				defaultStrategy();
 			} else if (option == 2) {
 				otherStrategy();
-			} else {
-				System.out.println("Please choose option 1 or 2.");
 			}
 		}
 		System.out.println("Finished. Total number of moves: " + movements);
@@ -95,9 +95,6 @@ public class Elevator {
 	 * down to lower floors where customers are waiting and then up again. The
 	 * elevator is not going higher or lower than customers starting/destination
 	 * floors. Tracks the number of moves done by elevator
-	 * 
-	 * This strategy is better because the lift is not going up and down if not
-	 * needed, therefore there are less moves.
 	 */
 
 	public void otherStrategy() {

@@ -1,6 +1,7 @@
 package cw3;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * @author fgrami01 & jbukow01
@@ -13,18 +14,32 @@ public class Runner {
 	private static Building building;
 	private static int numberOfFloors;
 	private static int numberOfCustomers;
+	private static Scanner nof;
+	private static Scanner noc;
+	private static Scanner option;
 
 	public static void main(String[] args) {
-
-		numberOfFloors = randomFloor(5, 30);
-		numberOfCustomers = (int) (Math.random() * 10);
-
+		
+		System.out.print("Please enter number of floors: ");
+		nof = new Scanner(System.in);
+		numberOfFloors = nof.nextInt();
+		System.out.print("Please enter number of customers: ");
+		noc = new Scanner(System.in);
+		numberOfCustomers = noc.nextInt();
+		System.out.print("Please enter strategy option (1, 2): ");
+		option = new Scanner(System.in);
+		int check = option.nextInt();
+		while (check != 1 && check != 2) {
+			System.out.print("Please choose option 1 or 2: ");
+			check = option.nextInt();
+		}
+		
 		customerList = new ArrayList<Customer>();
 
 		createCustomerList(numberOfCustomers, numberOfFloors);
 		createBuildingStructure(customerList, numberOfFloors);
 
-		building.elevator.run(2);
+		building.elevator.run(check);
 	}
 
 	/**
