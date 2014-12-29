@@ -44,19 +44,20 @@ public class Elevator {
 		System.out.println("Starting floor: " + currentFloor
 				+ " Number of floors: " + NUMBER_OF_FLOORS
 				+ " Number of customers: " + customerList.size());
+		System.out.println("Current floor: " + currentFloor
+				+ " Number of customers: " + customerList.size());
 		while (!customerList.isEmpty()) {
 			customerJoins();
 			customerLeaves();
 			if (option == 1) {
-				defaultStrategy();
+				move();
 			} else if (option == 2) {
-				// otherStrategy();
+				defaultStrategy();
 			} else {
 				System.out.println("Please choose option 1 or 2.");
 			}
-			System.out.println("Finished. Total number of moves: " + movements);
-			break;
 		}
+		System.out.println("Finished. Total number of moves: " + movements);
 	}
 
 	public void move() {
@@ -76,8 +77,8 @@ public class Elevator {
 
 		currentFloor += direction;
 		movements++;
-		System.out.print("Current floor: " + currentFloor);
-		System.out.println(" Number of customers: " + customerList.size());
+		System.out.println("Current floor: " + currentFloor
+				+ " Number of customers: " + customerList.size());
 	}
 
 	/**
