@@ -19,6 +19,6 @@ public class ElevatorTest {
 		Elevator elevator = new Elevator(customerList, 8, 0);
 		elevator.defaultStrategy();
 		assertEquals("Number of floors", 8, 8);
-		
+
 	}
 }

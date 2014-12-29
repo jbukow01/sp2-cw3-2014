@@ -14,8 +14,6 @@ public class Elevator {
 	private int currentFloor;
 	private int movements;
 	private int direction;
-	private int in = 0;
-	private int out = 0;
 
 	/**
 	 * Creates elevator with customer list, number of floors and starting floor
@@ -63,6 +61,13 @@ public class Elevator {
 		System.out.println("Finished. Total number of moves: " + movements);
 	}
 
+	/**
+	 * Moves elevator from starting floor to the top of the building, picking up
+	 * and dropping customers off in desired floors. It moves from starting
+	 * floor to the last floor and then all the way down and up again till there
+	 * is no customers waiting. Tracks the number of moves done by elevator
+	 */
+
 	public void defaultStrategy() {
 
 		if (direction == 0) {
@@ -85,13 +90,14 @@ public class Elevator {
 	}
 
 	/**
-	 * Moves elevator from bottom to the top of the building, picking up and
-	 * dropping customers off in desired floors. It moves from floor to floor
-	 * going up and down, even if there is no customer to pick up or drop off.
-	 * Tracks the number of moves done by elevator
+	 * Moves elevator from a starting floor to the next floor up if there is a
+	 * customer waiting to be dropped off or picked in, otherwise it's going
+	 * down to lower floors where customers are waiting and then up again. The
+	 * elevator is not going higher or lower than customers starting/destination
+	 * floors. Tracks the number of moves done by elevator
 	 * 
-	 * @param numberOfFloors
-	 * @param startingFloor
+	 * This strategy is better because the lift is not going up and down if not
+	 * needed, therefore there are less moves.
 	 */
 
 	public void otherStrategy() {
@@ -119,11 +125,11 @@ public class Elevator {
 	 * Customer goes into the elevator
 	 * 
 	 */
+
 	public void customerJoins() {
 		for (int i = 0; i < customerList.size(); i++) {
 			if (customerList.get(i).getStartingFloor() == currentFloor) {
 				customerList.get(i).setInElevator(true);
-				in++;
 			}
 		}
 	}
@@ -132,12 +138,12 @@ public class Elevator {
 	 * Customer leaves the elevator
 	 * 
 	 */
+
 	public void customerLeaves() {
 		for (int i = customerList.size() - 1; i >= 0; i--) {
 			if (customerList.get(i).getDestinationFloor() == currentFloor
 					&& customerList.get(i).isInElevator()) {
 				customerList.remove(i);
-				out++;
 			}
 		}
 	}

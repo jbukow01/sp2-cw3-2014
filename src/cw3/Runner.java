@@ -72,6 +72,7 @@ public class Runner {
 	 *            the floor in which the customer leaves the elevator
 	 * @return
 	 */
+
 	public static int randomFloor(int start, int end) {
 		int range = (end - start) + 1;
 		int floor = start + (int) (Math.random() * range);

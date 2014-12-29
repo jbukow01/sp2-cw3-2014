@@ -51,6 +51,7 @@ public class Customer {
 	 * @param destinationFloor
 	 *            the desired floor of each customer
 	 */
+
 	public Customer(int numberOfFloors, int startingFloor, int destinationFloor) {
 		customerId++;
 		this.startingFloor = startingFloor;
