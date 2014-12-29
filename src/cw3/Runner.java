@@ -13,10 +13,10 @@ public class Runner {
 	private static ArrayList<Customer> customerList;
 	private static Building building;
 	private static int numberOfFloors;
-	private static int numberOfCustomers;
+	static int numberOfCustomers;
 	private static Scanner nof;
 	private static Scanner noc;
-	private static Scanner option;
+	private static Scanner optionCheck;
 
 	public static void main(String[] args) {
 		
@@ -37,15 +37,15 @@ public class Runner {
 		numberOfCustomers = noc.nextInt();
 		
 		System.out.print("Please enter strategy option (1, 2): ");
-		option = new Scanner(System.in);
-        while (!option.hasNextInt()) {
+		optionCheck = new Scanner(System.in);
+        while (!optionCheck.hasNextInt()) {
             System.out.print("Please choose option 1 or 2: ");
-            option.next();
+            optionCheck.next();
         }
-		int check = option.nextInt();
-		while (check != 1 && check != 2) {
+		int option = optionCheck.nextInt();
+		while (option != 1 && option != 2) {
 			System.out.print("Please choose option 1 or 2: ");
-			check = option.nextInt();
+			option = optionCheck.nextInt();
 			
 		}
 		
@@ -54,7 +54,7 @@ public class Runner {
 		createCustomerList(numberOfCustomers, numberOfFloors);
 		createBuildingStructure(customerList, numberOfFloors);
 
-		building.elevator.run(check);
+		building.elevator.run(option);
 	}
 
 	/**
@@ -110,14 +110,5 @@ public class Runner {
 			floor++;
 		}
 		return floor;
-	}
-	
-	public static boolean isInteger(String x) {
-	    try { 
-	        Integer.parseInt(x); 
-	    } catch(NumberFormatException e) { 
-	        return false; 
-	    }
-	    return true;
 	}
 }
